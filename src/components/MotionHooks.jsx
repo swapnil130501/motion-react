@@ -12,7 +12,7 @@ export default function MotionHooks() {
         console.log("Scroll Progress:", latest);
     })
 
-    const translateContent = useTransform(scrollYProgress, [0, 1], [200, -300]);
+    const translateContent = useTransform(scrollYProgress, [0, 1], [-200, 100]);
     const opacityContent = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]);
 
     const blur = useTransform(scrollYProgress, [0.5, 1], [0, 10]);
@@ -38,9 +38,9 @@ export default function MotionHooks() {
 
     return (
         <div className="min-h-screen bg-neutral-900 flex items-center justify-center py-40">
-            <div ref={ref} className="flex flex-col gap-10 max-w-4xl mx-auto p-8 py-40">
+            <div ref={ref} className="flex flex-col gap-10 max-w-4xl mx-auto p-8">
                 {feature.map((feature) => (
-                    <div key={feature.title} className="grid grid-cols-2 items-center gap-20">
+                    <div key={feature.title} className="grid grid-cols-2 items-center gap-20 py-40">
                         <motion.div 
                             style={{
                                 filter: useMotionTemplate`blur(${blur}px)`,
@@ -56,7 +56,7 @@ export default function MotionHooks() {
                                 opacity: opacityContent
                             }}
                         >
-                            <img src={feature.image} alt={feature.title} className="w-full h-auto rounded-lg shadow-lg py-40" />
+                            <img src={feature.image} alt={feature.title} className="w-full h-auto rounded-lg shadow-lg"/>
                         </motion.div>
                     </div>
                 ))}
