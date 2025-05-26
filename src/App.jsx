@@ -1,5 +1,6 @@
 import './App.css'
 import Card from './components/Card'
+import Layout from './components/Layout'
 import MotionHooks from './components/MotionHooks'
 import Sidebar from './components/Sidebar'
 
@@ -14,6 +15,7 @@ function App() {
                 </div>
             </div>
             <MotionHooks />
+            <Layout />
         </>
     )
 }
